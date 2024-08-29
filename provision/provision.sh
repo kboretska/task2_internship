@@ -13,7 +13,7 @@ useradd -m sftp -g sftp
 echo "sftp:pass" | chpasswd
 
 echo "-- Configuring sshd -- "
-cat <<EOF >> /etc/ssh/sshd_config
+cat <<EOF > /etc/ssh/sshd_config
 Subsystem sftp internal-sftp
 
 Match group sftp
