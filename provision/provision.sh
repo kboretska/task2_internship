@@ -34,6 +34,7 @@ echo "-- Copying bin, lib and lib64 to chroot -- "
 sudo cp -r /bin /home/sftp/
 sudo cp -r /lib /home/sftp/
 sudo cp -r /lib64 /home/sftp/
+sudo cp -r /dev /home/sftp/
 
 echo "-- Creating uploads directory for sftp -- "
 mkdir -p /home/sftp/uploads
