@@ -23,7 +23,6 @@ AllowTcpForwarding no
 RSAAuthentication yes
 PasswordAuthentication yes
 AuthorizedKeysFile %h/.ssh/authorized_keys
-ForceCommand internal-sftp
 EOF
 
 # "PasswordAuthentication yes" must be blown away once ssh-pub-key-exchange-script.sh is executed
