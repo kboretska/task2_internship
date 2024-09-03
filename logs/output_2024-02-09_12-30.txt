@@ -1,0 +1,8 @@
+sftp_1 server: server_2 made 47 entries, server_3 made 7 entries.
+sftp_2 server: server_1 made 37 entries, server_3 made 7 entries.
+sftp_3 server: server_1 made 32 entries, server_2 made 40 entries.
+
+Total statistics:
+server_2 made 87 entries in total.
+server_3 made 14 entries in total.
+server_1 made 69 entries in total.

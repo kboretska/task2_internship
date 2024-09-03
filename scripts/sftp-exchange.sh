@@ -8,7 +8,7 @@ FILE_CONTENT="${DATE}, ${TIME}, ${SERVER_NAME}"
 FILE_NAME="${SERVER_NAME}_file_${DATE}_${TIME}.txt"
 
 # Define SFTP servers
-SFTP_SERVERS=("10.0.0.201" "10.0.0.202" "10.0.0.203")
+SFTP_SERVERS=("192.168.56.201" "192.168.56.202" "192.168.56.203")
 USERNAME="sftp"
 
 # Create a temporary file with the content

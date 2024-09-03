@@ -1,0 +1,3 @@
+sftp_1 server: server_2 made 45 entries, server_3 made 6 entries.
+sftp_2 server: server_1 made 36 entries, server_3 made 6 entries.
+sftp_3 server: server_1 made 31 entries, server_2 made 38 entries.

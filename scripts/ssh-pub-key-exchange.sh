@@ -1,5 +1,5 @@
 # Define SFTP servers
-SFTP_SERVERS=("10.0.0.201" "10.0.0.202" "10.0.0.203")
+SFTP_SERVERS=("192.168.56.201" "192.168.56.202" "192.168.56.203")
 USERNAME="sftp"
 
 CURRENT_IP=$(hostname -I | awk '{print $2}')

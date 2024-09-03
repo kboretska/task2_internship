@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server Stats</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        
+        h1 {
+            color: #333;
+        }
+        .stats {
+            margin-top: 20px;
+        }
+        .stats h2 {
+            color: #555;
+        }
+        .stats p {
+            font-size: 1.1em;
+        }
+        .total {
+            margin-top: 30px;
+            font-weight: bold;
+        }
+        .server-section {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .files {
+            margin-top: 10px;
+        }
+        .files table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .files th, .files td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        .files th {
+            background-color: #f2f2f2;
+        }
+        .toggle-content {
+            display: none;
+        }
+        .toggle-button {
+            cursor: pointer;
+            color: #007bff;
+            text-decoration: underline;
+        }
+    </style>
+    <script>
+        function toggleContent(id) {
+            var content = document.getElementById(id);
+            if (content.style.display === "none") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Server Statistics</h1>
+        <div class="total">
+            <h2>Total Entries:</h2>
+            {% if stats['total'] %}
+                {% for server, count in stats['total'].items() %}
+                    <p>Server {{ server }}: {{ count }} entries</p>
+                {% endfor %}
+            {% else %}
+                <p>No total statistics available.</p>
+            {% endif %}
+        </div>
+        <div class="stats">
+            {% for host, data in stats.items() %}
+                {% if host != 'total' %}
+                    <div class="server-section">
+                        <h2>{{ host }} Files:</h2>
+                        <div class="toggle-button" onclick="toggleContent('{{ host }}')">Toggle Files</div>
+                        <div id="{{ host }}" class="toggle-content">
+                            <div class="files">
+                                {% for server, files in data.files.items() %}
+                                    <h3>Server {{ server }} files ({{ files|length }}):</h3>
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>File Name</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for file in files %}
+                                                <tr>
+                                                    <td>{{ file.name }}</td>
+                                                </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
