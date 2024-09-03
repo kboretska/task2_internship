@@ -1,0 +1,5 @@
+sftp_1 server: .
+sftp_2 server: .
+sftp_3 server: .
+
+Total statistics:
